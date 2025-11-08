@@ -1,0 +1,36 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Grocery Store</title>
+  <style>
+    body { font-family: Arial; text-align: center; background-color: #f8f8f8; }
+    h1 { color: green; }
+    table { margin: auto; border-collapse: collapse; width: 60%; }
+    th, td { border: 1px solid #ccc; padding: 8px; }
+    th { background-color: #c8e6c9; }
+  </style>
+</head>
+<body>
+  <h1>🥦 Online Grocery Store</h1>
+  <p>Fresh groceries delivered to your doorstep!</p>
+
+  <table id="groceryTable">
+    <tr><th>ID</th><th>Item</th><th>Price (₹)</th></tr>
+  </table>
+
+  <script>
+    fetch('http://localhost:3000/api/groceries')
+      .then(response => response.json())
+      .then(data => {
+        const table = document.getElementById('groceryTable');
+        data.forEach(item => {
+          const row = `<tr><td>${item.id}</td><td>${item.name}</td><td>${item.price}</td></tr>`;
+          table.innerHTML += row;
+        });
+      });
+  </script>
+</body>
+</html>

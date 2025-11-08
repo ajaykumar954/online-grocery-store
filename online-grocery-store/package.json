@@ -1,0 +1,12 @@
+{
+  "name": "online-grocery-store",
+  "version": "1.0.0",
+  "description": "A simple Online Grocery Store for DevOps Lab Project",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
